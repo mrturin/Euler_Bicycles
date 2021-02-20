@@ -1,5 +1,6 @@
+#include <vector>
 /******************************************************************************
-     * File: math.cpp
+     * File: Math_Function.cpp
      * Description: Вспомогательные функции для вычислений
 ******************************************************************************/
 
@@ -8,12 +9,12 @@
     * @param n - кол-во элементов вектора;
     * @return Указатель на вектор нулей (нулевой элемент).
 */
-char* zero(const int n)
+std::vector<char> zero(const int n)
 {
-    char* zero = new char[n];
+    std::vector<char> zero;
     for (int i = 0; i < n; i++)
     {
-        zero[i] = 0;
+        zero.push_back(0);
     }
     return zero;
 }
@@ -23,17 +24,17 @@ char* zero(const int n)
     * @param n - кол-во элементов вектора;
     * @return Указатель на вектор единиц (нулевой элементы).
 */
-char* one(int n)
+std::vector<char> one(const int n)
 {
-    char* one = new char[n];
+    std::vector<char> one;
     for (int i = 0; i < n; i++)
     {
-        one[i] = 1;
+        one.push_back(0);
     }
     return one;
 }
 
-void FINDAB(int N,char* lenA, char* lenB, int& N0, int& N1, int& N2, int& N3, char* Aa, char* Bb,
+/*void FINDAB(int N,char* lenA, char* lenB, int& N0, int& N1, int& N2, int& N3, char* Aa, char* Bb,
     char*** A , char*** B, char* a, char* b, int v, int z) {
     int lenAN, lenBN, I, H; // int неподтверждено
     char* S = new char; // пока не понимаю какая размерность у этого всего. бесконечность?
@@ -104,7 +105,7 @@ void FINDAB(int N,char* lenA, char* lenB, int& N0, int& N1, int& N2, int& N3, ch
             }
     }
 }
-
+*/
 
 void mulcirc2(char* a,char* Aa, int s0,int v, int b, int c) {
     int s{}, ss{};
@@ -136,7 +137,7 @@ int branchA(char* Aa,int m, int M,char* pw2) {
     return N;
 }
 
-int branchB(char* Bb, int m, int M) {
+int branchB(char* Bb, int m, int M, char* pw2) {
     int N{};
     N = 0;
     for (int i = 1; i <= m; i++)

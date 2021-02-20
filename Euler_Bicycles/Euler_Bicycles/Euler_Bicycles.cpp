@@ -2,6 +2,7 @@
 //
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
+#include <vector>
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
@@ -10,6 +11,7 @@
 #include "Orbit.h" // описывает модуль работы с орбитами
 #include "Sequence_Generator.h" // описывает модуль работы с генерацией последовательностей
 #include "Tree.h"//описывает модуль работы с деревьями
+#include "Math_Function.h"//описывает модуль работы с деревьями
 
 int n, // порядок матрицы Эйлера
 	k1, // равное (ν–1)/2, где v=n/2 
@@ -30,9 +32,9 @@ int n, // порядок матрицы Эйлера
 	z, z1;
 
 bool open, modified, FO, F;
-char* a = new char, //последовательность a
-char* b = new char, //последовательность b
-char* g = new char, //последовательность адресов
+std::vector<char> a;//последовательность a
+char* b = new char; //последовательность b
+char* g = new char; //последовательность адресов
 char* O = new char; //орбиты
 char* Aa = new char; 
 char* Bb = new char;
@@ -119,8 +121,8 @@ void program_1()
 			getseq(a, g, O, vO, v, k1);
 			mulcirc2(a, Aa, 2, v, 1, z);
 			N = branchA(Aa, m, M);
-			lenAN = lenA[N];
-			seq2num4(a, v1); //  puts(N+"! a="+a);
+			//lenAN = lenA[N];
+			//seq2num4(a, v1); //  puts(N+"! a="+a);
 			A[N][lenAN][0] = N0;
 			A[N][lenAN][1] = N1;
 			A[N][lenAN][2] = N2;
@@ -131,7 +133,7 @@ void program_1()
 			getseq(b, g, O, vO, v, k2);
 			mulcirc2(b, Bb, 0, v, 1, z);
 			N = branchB(Bb, m, M);
-			lenBN = lenB[N];
+			//lenBN = lenB[N];
 			seq2num4(b, v1); // puts(N+"! b="+b);
 			B[N][lenBN][0] = N0;
 			B[N][lenBN][1] = N1;
@@ -145,24 +147,7 @@ void program_1()
 			}
 
 		} // внутренний цикл kit
-
-
-
-
-
-	//putss("pw2", pw2, m+1);
-
-	
-	/*getseq(aseq, gseq, O, vO, v, k1); 
 				
-				FO = k == k1; 
-				puts2("a", aseq, v); puts1("k1'", k);
-
-				getseq(bseq, gseq, O, vO, v, k2);  FO = k == k2; 
-				puts2("b", bseq, v); puts1("k2'", k);*/
-				
-			
-		
 }
 
 
