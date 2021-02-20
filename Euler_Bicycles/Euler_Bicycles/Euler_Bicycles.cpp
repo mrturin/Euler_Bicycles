@@ -10,72 +10,65 @@
 #include "Orbit.h" // описывает модуль работы с орбитами
 #include "Sequence_Generator.h" // описывает модуль работы с генерацией последовательностей
 
-int n,// порядок матрицы Эйлера
-	k, 
-	k1,// равное (ν–1)/2, где v=n/2 
-	k2;// равное (ν–1)/2, где v=n/2 
+int n, // порядок матрицы Эйлера
+	k1, // равное (ν–1)/2, где v=n/2 
+	k2, // равное (ν–1)/2, где v=n/2 
+	m, //длинна адреса ветви 
+	M, //число ветвей
+	mlenA, // число листьев на дереве А
+	mlenB; // число листьев на дереве В
 
-int v, v1, vO, xO, i;
+int v, v1, v2, vO, xO, z, z1;
 
 bool open, modified, FO;
 char name[256],
-	 aseq[256], //последовательность a
-	 bseq[256], //последовательность b
-	 gseq[256], //последовательность адресов
-	 O[256]; //орбиты
+	aseq[256], //последовательность a
+	bseq[256], //последовательность b
+	gseq[256], //последовательность адресов
+	O[256], //орбиты
+	A[256], //дерево А
+	B[256]; //дерево В
+int pw2[256];//массив степеней 2
 
 
-void k1k2(int n) {
-	v = n / 2; v1 = v - 1;  k1 = v1 / 2; k2 = v1 / 2;
+
+void init(int n) {
+	v = n / 2; 
+	v1 = v - 1;  
+	k1 = k2 = v1 / 2;
+	z = (v + 1) / 2;
+	z1 = z - 1;
+
+	m = 8;
+	if (m > z1) m = z1;
+	M = pow(2, m);
+	pw2[0] = 1;
+	for (int i = 0; i < m; i++) pw2[i + 1] = pow(2, i);
 }
 
-int getk(char a[], int v) {
-	int i, N;
-	N = 0; for (i = 0; i < v; i++)  if (a[i] == 1) N++;
-	return N;
-}
-
-int program_1()
+void program_1()
 {
-	int a, 
-		b, 
-		c, // хранит введеное значение порядка n матрицы Эйлера 
-		d;
-	//char fn[256];
-	open = 0; name[0] = 0; modified = 0; FO = true;
-	while (1) {
-		switch (menu("1. New\r\n2. Open\r\n3. Save\r\n4. Save as\r\n5. Info\r\n"\
-			"6. Generate A\r\n7. Find AB\r\n8. Auto\r\n9. Exit\r\n", 10))
-		{
-		case 1:
-			printf("Order (n):\r\n");
-			scanf("%i", &c);
-			n = c;
-			printf("Input k1/k2? [0/1]\r\n");
-			scanf("%i", &i);
-			//if (i) {
-			//	printf("k1:\r\n"); scanf("%i", &k1);
-			//	printf("k2:\r\n"); scanf("%i", &k2);
-			//}
-			k1k2(c);
-			//if (!k1 || n & 1) { open = 0; printf("Error\r\n"); }
-			//else create(c, b, ((a - (a >> 4) - 4 * 6) / b - 4) / 12);
-			if (FO) {
-				xO=get_xO(c); //находим первое приближение
-				vO = orbit(O, xO, v); putss("O", O, vO); puts1("vO", vO); puts1("k1=k2", k1); //находим орбиту 
-				getseq(aseq, gseq, O, vO, v, k1); 
-				k = getk(aseq, v); 
+	printf("Order (n):\r\n");
+	scanf("%i", &n);
+	init(n);
+	xO=get_xO(n); //находим первое приближение
+	vO = orbit(O, xO, v); putss("O", O, vO); puts1("vO", vO); puts1("k1=k2", k1); //находим орбиту 
+
+	//putss("pw2", pw2, m+1);
+
+	
+	/*getseq(aseq, gseq, O, vO, v, k1); 
+				
 				FO = k == k1; 
 				puts2("a", aseq, v); puts1("k1'", k);
 
-				getseq(bseq, gseq, O, vO, v, k2); k = getk(bseq, v); FO = k == k2; 
-				puts2("b", bseq, v); puts1("k2'", k);
-				if (!FO) { printf("Error orbit!\r\n"); return 1; }
-			}
-			break;
-		}
-	}
+				getseq(bseq, gseq, O, vO, v, k2);  FO = k == k2; 
+				puts2("b", bseq, v); puts1("k2'", k);*/
+				
+			
+		
 }
+
 
 int main() {
 	srand(time(NULL));

@@ -154,11 +154,13 @@
       </DeploymentContent>
     </ClCompile>
     <ClCompile Include="Sequence_Generator.cpp" />
+    <ClCompile Include="Tree.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Formatter.h" />
     <ClInclude Include="Orbit.h" />
     <ClInclude Include="Sequence_Generator.h" />
+    <ClInclude Include="Tree.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

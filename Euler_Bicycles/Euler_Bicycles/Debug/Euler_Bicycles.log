@@ -1,6 +1,3 @@
-﻿  Euler_Bicycles.cpp
-C:\Users\gorin\Documents\GitHub\Euler_Bicycles\Euler_Bicycles\Euler_Bicycles\Euler_Bicycles.cpp(44,6): warning C4101: a: неиспользованная локальная переменная
-C:\Users\gorin\Documents\GitHub\Euler_Bicycles\Euler_Bicycles\Euler_Bicycles\Euler_Bicycles.cpp(45,3): warning C4101: b: неиспользованная локальная переменная
-C:\Users\gorin\Documents\GitHub\Euler_Bicycles\Euler_Bicycles\Euler_Bicycles\Euler_Bicycles.cpp(47,3): warning C4101: d: неиспользованная локальная переменная
-C:\Users\gorin\Documents\GitHub\Euler_Bicycles\Euler_Bicycles\Euler_Bicycles\Euler_Bicycles.cpp(85,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-  Euler_Bicycles.vcxproj -> C:\Users\gorin\Documents\GitHub\Euler_Bicycles\Euler_Bicycles\Debug\Euler_Bicycles.exe
+﻿  Tree.cpp
+C:\Users\gorin\Documents\GitHub\Euler_Bicycles\Euler_Bicycles\Euler_Bicycles\Tree.cpp(8,32): error C2440: инициализация: невозможно преобразовать "char (*)[3]" в "char *"
+C:\Users\gorin\Documents\GitHub\Euler_Bicycles\Euler_Bicycles\Euler_Bicycles\Tree.cpp(8,16): message : Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
