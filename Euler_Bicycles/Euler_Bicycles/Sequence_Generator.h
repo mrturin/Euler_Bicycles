@@ -1,0 +1,1 @@
+void getseq(char a[], char g[], char O[], int vO, int v, int k1);

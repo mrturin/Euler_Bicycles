@@ -140,6 +140,25 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Euler_Bicycles.cpp" />
+    <ClCompile Include="Formatter.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </ExcludedFromBuild>
+      <DeploymentContent>true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </DeploymentContent>
+    </ClCompile>
+    <ClCompile Include="Orbit.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </DeploymentContent>
+    </ClCompile>
+    <ClCompile Include="Sequence_Generator.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Formatter.h" />
+    <ClInclude Include="Orbit.h" />
+    <ClInclude Include="Sequence_Generator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
