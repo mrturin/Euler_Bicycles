@@ -5,7 +5,6 @@
 
 char*** init_tree(int mlet, int M) {
     char*** tree = new char** [M];
-    //char* zero = new char[4]{ 0,0,0,0 };
     for (int i = 0; i < M; i++)
     {
         tree[i] = new char* [mlet]; // столбцы

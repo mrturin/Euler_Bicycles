@@ -20,6 +20,7 @@ int n, // порядок матрицы Эйлера
 	mlenB=20, // число листьев на дереве В
 	Len,Len1,
 	N0,N1,N2,N3,
+	N, NumAN,
 	N0L, N1L, N2L, N3L,//- аналог v1 для куска кода
 	L1, L2, L3,
 	v,//размер последовательностей a,b
@@ -28,11 +29,13 @@ int n, // порядок матрицы Эйлера
 	xO,//первый X для поиска орбит
 	z, z1;
 
-bool open, modified, FO;
-char aseq[256], //последовательность a
-	 bseq[256], //последовательность b
-	 gseq[256], //последовательность адресов
-	 O[256]; //орбиты
+bool open, modified, FO, F;
+char* a = new char, //последовательность a
+char* b = new char, //последовательность b
+char* g = new char, //последовательность адресов
+char* O = new char; //орбиты
+char* Aa = new char; 
+char* Bb = new char;
 	
 int pw2[256];//массив степеней 2
 
@@ -77,9 +80,71 @@ void program_1()
 	N0L = L1;
 	L2 = L3 = 0;
 	N1L = N2L = N3L = 0;
-	
+	for (int i = 0; i < Len; i++)
+	{
+		L1++;
+		if (L1 <= v1) {
+			L2 = L1;
+			N1L = i;
+		}
+	}
+	L3 = L2;
+	for (int i = 0; i < Len; i++)
+	{
+		L2++;
+		if (L2 <= v1) {
+			L3 = L2;
+			N2L = i;
+		}
+	}
+	for (int i = 0; i < Len; i++)
+	{
+		L3++;
+		if (L3 <= v1) N3L = i;
+	}
 
+	a = zero(v);
+	Aa = zero(z);
+	b = zero(v);
+	Bb = zero(z);
+	g = zero(v);
+	N = NumAN = 0;
+	F = true;
+	// F Флаг "искать" !
+ // START ВНУТРЕННЕГО ЦИКЛА ПОИСКА
+	for (int kit = 0; kit < 1000; kit++)
+		if (F) {
 
+			// Генерируем ДЕРЕВО A
+			getseq(a, g, O, vO, v, k1);
+			mulcirc2(a, Aa, 2, v, 1, z);
+			N = branchA(Aa, m, M);
+			lenAN = lenA[N];
+			seq2num4(a, v1); //  puts(N+"! a="+a);
+			A[N][lenAN][0] = N0;
+			A[N][lenAN][1] = N1;
+			A[N][lenAN][2] = N2;
+			A[N][lenAN][3] = N3;
+			if (lenAN < mlenA) lenA[N] = lenAN + 1;
+
+			// Генерируем ДЕРЕВО B
+			getseq(b, g, O, vO, v, k2);
+			mulcirc2(b, Bb, 0, v, 1, z);
+			N = branchB(Bb, m, M);
+			lenBN = lenB[N];
+			seq2num4(b, v1); // puts(N+"! b="+b);
+			B[N][lenBN][0] = N0;
+			B[N][lenBN][1] = N1;
+			B[N][lenBN][2] = N2;
+			B[N][lenBN][3] = N3;
+			if (lenBN < mlenB) {
+				lenB[N] = lenBN + 1;
+			}
+			else {
+				FINDAB(N);
+			}
+
+		} // внутренний цикл kit
 
 
 
