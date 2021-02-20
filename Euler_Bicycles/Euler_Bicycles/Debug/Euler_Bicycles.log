@@ -1,3 +1,7 @@
-﻿  Tree.cpp
-  LINK : не найден или не выполнена сборка C:\Users\ADMIN\Documents\Visual Studio 2019\eiler\Euler_Bicycles\Euler_Bicycles\Debug\Euler_Bicycles.exe при последней инкрементной компоновке; выполняется полная компоновка
-  Euler_Bicycles.vcxproj -> C:\Users\ADMIN\Documents\Visual Studio 2019\eiler\Euler_Bicycles\Euler_Bicycles\Debug\Euler_Bicycles.exe
+﻿  Euler_Bicycles.cpp
+C:\Users\gorin\Documents\GitHub\Euler_Bicycles\Euler_Bicycles\Euler_Bicycles\Euler_Bicycles.cpp(51,9): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\gorin\Documents\GitHub\Euler_Bicycles\Euler_Bicycles\Euler_Bicycles\Euler_Bicycles.cpp(53,46): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\gorin\Documents\GitHub\Euler_Bicycles\Euler_Bicycles\Euler_Bicycles\Euler_Bicycles.cpp(105,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  Tree.cpp
+  Создание кода...
+  Euler_Bicycles.vcxproj -> C:\Users\gorin\Documents\GitHub\Euler_Bicycles\Euler_Bicycles\Debug\Euler_Bicycles.exe
