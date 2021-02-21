@@ -1,1 +1,1 @@
-void getseq(char a[], char g[], char O[], int vO, int v, int k1);
+void getseq(std::vector<char> a, std::vector<char> g, std::vector<char> O, int vO, int v, int k1);

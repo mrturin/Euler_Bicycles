@@ -32,12 +32,12 @@ int n, // порядок матрицы Эйлера
 	z, z1;
 
 bool open, modified, FO, F;
-std::vector<char> a;//последовательность a
-char* b = new char; //последовательность b
-char* g = new char; //последовательность адресов
-char* O = new char; //орбиты
-char* Aa = new char; 
-char* Bb = new char;
+std::vector<char> a,//последовательность a
+				  b, //последовательность b
+				  g, //последовательность адресов
+				  O, //орбиты
+				  Aa, 
+                  Bb;
 	
 int pw2[256];//массив степеней 2
 
@@ -64,7 +64,8 @@ void program_1()
 	scanf("%i", &n);
 	init(n);
 	xO=get_xO(n);
-	vO = orbit(O, xO, v); putss("O", O, vO); puts1("vO", vO); puts1("k1=k2", k1); //находим орбиту 
+	vO = orbit(O, xO, v); 
+	putss("O", O, vO); puts1("vO", vO); puts1("k1=k2", k1); //находим орбиту 
 	
 	//ГЕНЕРАЦИЯ ДЕРЕВЬЕВ А,В
 	A = init_tree(mlenA, M);
@@ -117,34 +118,34 @@ void program_1()
 	for (int kit = 0; kit < 1000; kit++)
 		if (F) {
 
-			// Генерируем ДЕРЕВО A
-			getseq(a, g, O, vO, v, k1);
-			mulcirc2(a, Aa, 2, v, 1, z);
-			N = branchA(Aa, m, M);
-			//lenAN = lenA[N];
-			//seq2num4(a, v1); //  puts(N+"! a="+a);
-			A[N][lenAN][0] = N0;
-			A[N][lenAN][1] = N1;
-			A[N][lenAN][2] = N2;
-			A[N][lenAN][3] = N3;
-			if (lenAN < mlenA) lenA[N] = lenAN + 1;
+			//// Генерируем ДЕРЕВО A
+			//getseq(a, g, O, vO, v, k1);
+			//mulcirc2(a, Aa, 2, v, 1, z);
+			//N = branchA(Aa, m, M);
+			////lenAN = lenA[N];
+			////seq2num4(a, v1); //  puts(N+"! a="+a);
+			//A[N][lenAN][0] = N0;
+			//A[N][lenAN][1] = N1;
+			//A[N][lenAN][2] = N2;
+			//A[N][lenAN][3] = N3;
+			//if (lenAN < mlenA) lenA[N] = lenAN + 1;
 
-			// Генерируем ДЕРЕВО B
-			getseq(b, g, O, vO, v, k2);
-			mulcirc2(b, Bb, 0, v, 1, z);
-			N = branchB(Bb, m, M);
-			//lenBN = lenB[N];
-			seq2num4(b, v1); // puts(N+"! b="+b);
-			B[N][lenBN][0] = N0;
-			B[N][lenBN][1] = N1;
-			B[N][lenBN][2] = N2;
-			B[N][lenBN][3] = N3;
-			if (lenBN < mlenB) {
-				lenB[N] = lenBN + 1;
-			}
-			else {
-				FINDAB(N);
-			}
+			//// Генерируем ДЕРЕВО B
+			//getseq(b, g, O, vO, v, k2);
+			//mulcirc2(b, Bb, 0, v, 1, z);
+			//N = branchB(Bb, m, M);
+			////lenBN = lenB[N];
+			//seq2num4(b, v1); // puts(N+"! b="+b);
+			//B[N][lenBN][0] = N0;
+			//B[N][lenBN][1] = N1;
+			//B[N][lenBN][2] = N2;
+			//B[N][lenBN][3] = N3;
+			//if (lenBN < mlenB) {
+			//	lenB[N] = lenBN + 1;
+			//}
+			//else {
+			//	FINDAB(N);
+			//}
 
 		} // внутренний цикл kit
 				

@@ -4,7 +4,7 @@
 ******************************************************************************/
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-
+#include <vector>
 
 int menu(const char* items, int count) {
 	int i;
@@ -38,7 +38,7 @@ void puts2(const char name[], char a[], int v) {
 }
 
 
-void putss(const char name[], char a[], int v) {
+void putss(const char name[], std::vector<char> a, int v) {
 	int i;
 	printf(name); printf("=[");
 	for (i = 0; i < v; i++) {

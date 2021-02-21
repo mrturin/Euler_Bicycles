@@ -1,3 +1,4 @@
+
 #include <vector>
 /******************************************************************************
      * File: Math_Function.cpp
@@ -107,7 +108,7 @@ std::vector<char> one(const int n)
 }
 */
 
-void mulcirc2(char* a,char* Aa, int s0,int v, int b, int c) {
+void mulcirc2(std::vector<char> a, std::vector<char> Aa, int s0,int v, int b, int c) {
     int s{}, ss{};
     for (int i = 0; i < b; i++) Aa[i] = 0;
     ss = 0;

@@ -2,7 +2,7 @@
      * File: Orbit.cpp
      * Description: Определяет методы связанные с орбитами
 ******************************************************************************/
-
+#include <vector>
 /**
 	* Генератор орбиты O=[1,x,x*x,x*x*x,...] mod v длины vO
 	* @param O[] - массив орбиты;
@@ -10,7 +10,7 @@
 	* @param v - размер последовательности равный n/2;
 	* @return Возвращает размер массива орбит.
 	*/
-int orbit(char O[], int x, int v) {
+int orbit(std::vector<char> O, int x, int v) {
 	int i, p, p2, vO;
 	O[0] = 1; p = x; p2 = p;
 	for (i = 1; i < v; i++) {
